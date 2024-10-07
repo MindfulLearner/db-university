@@ -26,6 +26,18 @@ services:
     networks:
       - db-network
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql-db
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql-db
+    networks:
+      - db-network
+
 volumes:
   mysql-data:
 
